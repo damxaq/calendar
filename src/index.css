@@ -10,3 +10,23 @@ body {
   margin: 0;
   text-align: center;
 }
+
+.day-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day-of-week button {
+  height: 4rem;
+  background-color: gray;
+  cursor: pointer;
+  outline: none;
+}
+
+.day-of-week button.current-month {
+  background-color: rgb(202, 202, 202);
+}
+
+.day-of-week button:focus {
+  /* border-style: outset; */
+}
