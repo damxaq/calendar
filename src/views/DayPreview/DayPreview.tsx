@@ -1,7 +1,14 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+
+interface ParamTypes {
+  date: string;
+}
 
 const DayPreview = () => {
-  return <div></div>;
+  const { date } = useParams<ParamTypes>();
+
+  return <div>{date}</div>;
 };
 
 export default DayPreview;

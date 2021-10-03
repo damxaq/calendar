@@ -49,6 +49,7 @@ export const initiateCalendar = (date: Date) => {
       dayOfWeekName: getNameOfTheDay(tempDate),
       dayOfWeekNumber: tempDate.getDay(),
       isCurrentMonth: true,
+      eventsCount: 0,
     });
     tempDate = addDays(tempDate, 1);
   }
@@ -71,6 +72,7 @@ export const initiateCalendar = (date: Date) => {
         dayOfWeekName: getNameOfTheDay(tempDate),
         dayOfWeekNumber: tempDate.getDay(),
         isCurrentMonth: false,
+        eventsCount: 0,
       });
     }
 
@@ -89,6 +91,7 @@ export const initiateCalendar = (date: Date) => {
         dayOfWeekName: getNameOfTheDay(tempDate),
         dayOfWeekNumber: tempDate.getDay(),
         isCurrentMonth: false,
+        eventsCount: 0,
       });
     }
     newCalendar = newCalendar.concat(nextCalendar);

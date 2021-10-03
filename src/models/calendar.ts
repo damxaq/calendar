@@ -4,6 +4,7 @@ export type Day = {
   dayOfWeekName: string;
   dayOfWeekNumber: number;
   isCurrentMonth: boolean;
+  eventsCount: number;
 };
 
 export type Calendar = {

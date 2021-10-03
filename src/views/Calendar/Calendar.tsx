@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import {
   daysInMonth,
@@ -50,13 +51,18 @@ const Calendar = () => {
         {calendar &&
           calendar.map((day, index) => {
             return (
-              <button
-                key={index}
-                title={day.date}
-                className={day.isCurrentMonth ? "current-month" : ""}
-              >
-                {day.monthDayNumber}
-              </button>
+              <Link to={`/day/${day.date}`} key={index}>
+                <button
+                  title={day.date}
+                  className={
+                    day.isCurrentMonth
+                      ? "day-button current-month"
+                      : "day-button"
+                  }
+                >
+                  {day.monthDayNumber}
+                </button>
+              </Link>
             );
           })}
       </div>

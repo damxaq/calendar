@@ -16,17 +16,22 @@ body {
   grid-template-columns: repeat(7, 1fr);
 }
 
-.day-of-week button {
+.day-of-week a {
+  padding: 1px;
+}
+
+.day-button {
+  width: 100%;
   height: 4rem;
   background-color: gray;
   cursor: pointer;
   outline: none;
 }
 
-.day-of-week button.current-month {
+.day-button.current-month {
   background-color: rgb(202, 202, 202);
 }
 
-.day-of-week button:focus {
+.day-button:focus {
   /* border-style: outset; */
 }
