@@ -8,7 +8,6 @@ function App() {
     <Switch>
       <Route exact path="/" component={Calendar} />
       <Route path="/day/:date" component={DayPreview} />
-      {/* <Route path="/day/:date" render={(props) => <DayPreview {...props} />} /> */}
     </Switch>
   );
 }
