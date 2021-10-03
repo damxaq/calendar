@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Header from "../../components/Header";
 
 import {
-  daysInMonth,
   getNextMonth,
   getPreviousMonth,
-  getNameOfTheDay,
-  getNameOfTheMonth,
   initiateCalendar,
+  formatedDateMonth,
 } from "../../utils/date.helpers";
 
 const Calendar = () => {
@@ -25,12 +24,7 @@ const Calendar = () => {
 
   return (
     <div>
-      <p>{getPreviousMonth(dateToShow).toString()}</p>
-      <p>
-        {getNameOfTheDay(dateToShow)} {dateToShow.getDate()}{" "}
-        {getNameOfTheMonth(dateToShow)} {dateToShow.getFullYear()}
-      </p>
-      <p>{daysInMonth(dateToShow.getMonth() + 1, dateToShow.getFullYear())}</p>
+      <Header title="Calendar" date={formatedDateMonth(dateToShow)} />
       <button onClick={() => setDateToShow(getPreviousMonth(dateToShow))}>
         {"<-"}
       </button>
@@ -46,7 +40,6 @@ const Calendar = () => {
         <div>Fr</div>
         <div>Sa</div>
       </div>
-
       <div className="day-of-week">
         {calendar &&
           calendar.map((day, index) => {

@@ -37,6 +37,21 @@ export const getNameOfTheMonth = (date: Date) => {
   return date.toLocaleString("default", { month: "long" });
 };
 
+export const parseDate = (input: string) => {
+  var parts = input.split(".");
+  return new Date(parts[1] + "." + parts[0] + "." + parts[2]);
+};
+
+export const formatedDateFull = (date: Date) => {
+  return `${getNameOfTheDay(date)} ${date.getDate()} ${getNameOfTheMonth(
+    date
+  )} ${date.getFullYear()}`;
+};
+
+export const formatedDateMonth = (date: Date) => {
+  return `${getNameOfTheMonth(date)} ${date.getFullYear()}`;
+};
+
 export const initiateCalendar = (date: Date) => {
   let newCalendar: Array<Day> = [];
   const daysCount = daysInMonth(date.getMonth() + 1, date.getFullYear());
