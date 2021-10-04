@@ -1,0 +1,31 @@
+.navigation-container {
+  position: relative;
+  width: 80%;
+  max-width: 50rem;
+  margin: auto;
+  font-size: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.back-button {
+  position: absolute;
+  left: 0;
+}
+
+.back-button:hover {
+  color: royalblue;
+}
+
+.navigation-container button {
+  font-size: 2rem;
+  border: none;
+  background-color: transparent;
+  color: rebeccapurple;
+  cursor: pointer;
+  padding: 0 2rem;
+}
+
+.navigation-container button:hover {
+  color: royalblue;
+}

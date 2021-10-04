@@ -1,6 +1,5 @@
 .day-main {
-  overflow-y: scroll;
-  height: 100vh;
+  margin: auto;
 }
 
 .event-list {
@@ -10,4 +9,18 @@
   max-width: 50rem;
   margin: 2rem auto;
   border-radius: 15px;
+}
+
+.add-event-button {
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 10px;
+  background-color: rebeccapurple;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.add-event-button:hover {
+  background-color: royalblue;
 }

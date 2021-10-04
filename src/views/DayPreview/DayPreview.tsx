@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import EventForm from "../../components/Form/EventForm";
 import EventCard from "../../components/Event/EventCard";
+import Navigation from "../../components/Navigation/Navigation";
 import { formatedDateFull, parseDate } from "../../utils/date.helpers";
 import { Event } from "../../models/event";
 
@@ -25,8 +26,16 @@ const DayPreview = () => {
   return (
     <div className="day-main">
       <Header title="Today Events" date={dateTitle} />
-      <button onClick={() => setAddEventModalVisible(!addEventModalVisible)}>
-        +
+      <Navigation
+        buttonLeft={() => {}}
+        buttonRight={() => {}}
+        date={dateObject}
+      />
+      <button
+        onClick={() => setAddEventModalVisible(!addEventModalVisible)}
+        className="add-event-button"
+      >
+        {addEventModalVisible ? "Cancel" : "Add Event"}
       </button>
       {(addEventModalVisible ||
         (eventToEdit && Object.keys(eventToEdit).length > 0)) && (
