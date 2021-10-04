@@ -7,6 +7,7 @@
 .day-of-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  font-size: 1.6rem;
 }
 
 .day-of-week a {
@@ -21,10 +22,18 @@
   outline: none;
   border-radius: 10px;
   border: none;
+  font-size: 1rem;
+  color: rebeccapurple;
+  font-weight: bold;
 }
 
 .day-button.current-month {
   background-color: rgb(202, 202, 202);
+}
+
+.day-button.current-day {
+  background-color: rgb(70, 91, 207);
+  color: white;
 }
 
 .day-button:hover {

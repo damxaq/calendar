@@ -14,6 +14,7 @@ import {
 const Calendar = () => {
   const [dateToShow, setDateToShow] = useState(new Date());
   const [calendar, setCalendar] = useState<Array<any>>([]);
+  const today = new Date().toLocaleDateString();
 
   useEffect(() => {
     if (dateToShow) {
@@ -46,11 +47,9 @@ const Calendar = () => {
                 <Link to={`/day/${day.date}`} key={index}>
                   <button
                     title={day.date}
-                    className={
-                      day.isCurrentMonth
-                        ? "day-button current-month"
-                        : "day-button"
-                    }
+                    className={`day-button ${
+                      day.isCurrentMonth ? "current-month" : ""
+                    } ${day.date === today ? "current-day" : ""}`}
                   >
                     {day.monthDayNumber}
                   </button>
