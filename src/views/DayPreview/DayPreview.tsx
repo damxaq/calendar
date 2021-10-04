@@ -16,26 +16,36 @@ interface ParamTypes {
 const DayPreview = () => {
   const { date } = useParams<ParamTypes>();
   const [addEventModalVisible, setAddEventModalVisible] = useState(false);
+  const [eventToEdit, setEventToEdit] = useState<Event>();
 
   const dateObject = parseDate(date);
   const dateTitle = formatedDateFull(dateObject);
   const events = useSelector((state: RootStateOrAny) => state.events.events);
 
   return (
-    <div>
+    <div className="day-main">
       <Header title="Today Events" date={dateTitle} />
       <button onClick={() => setAddEventModalVisible(!addEventModalVisible)}>
         +
       </button>
-      {addEventModalVisible && (
+      {(addEventModalVisible ||
+        (eventToEdit && Object.keys(eventToEdit).length > 0)) && (
         <EventForm
           setAddEventModalVisible={setAddEventModalVisible}
           date={date}
+          event={eventToEdit}
+          setEventToEdit={setEventToEdit}
         />
       )}
       <div className="event-list">
         {events.map((event: Event) => {
-          return <EventCard event={event} key={event.id} />;
+          return (
+            <EventCard
+              event={event}
+              key={event.id}
+              setEventToEdit={setEventToEdit}
+            />
+          );
         })}
       </div>
     </div>

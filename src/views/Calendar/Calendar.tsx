@@ -20,8 +20,6 @@ const Calendar = () => {
     }
   }, [dateToShow]);
 
-  console.log(calendar);
-
   return (
     <div>
       <Header title="Calendar" date={formatedDateMonth(dateToShow)} />

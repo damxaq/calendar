@@ -2,18 +2,29 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 import "./eventForm.css";
-import { addEvent } from "../../store/actions/eventActions";
+import { addEvent, editEvent } from "../../store/actions/eventActions";
+import { Event } from "../../models/event";
 
 interface PropTypes {
   setAddEventModalVisible: (_: boolean) => void;
   date: string;
+  event?: Event;
+  setEventToEdit: (event: Event) => void;
 }
 
-const EventForm = ({ setAddEventModalVisible, date }: PropTypes) => {
+const EventForm = ({
+  setAddEventModalVisible,
+  date,
+  event,
+  setEventToEdit,
+}: PropTypes) => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [time, setTime] = useState("");
+  const isEditing = event && Object.keys(event).length > 0;
+  const [title, setTitle] = useState(isEditing ? event.title : "");
+  const [description, setDescription] = useState(
+    isEditing ? event.description : ""
+  );
+  const [time, setTime] = useState(isEditing ? event.time : "");
 
   const clearForm = () => {
     setTitle("");
@@ -24,14 +35,27 @@ const EventForm = ({ setAddEventModalVisible, date }: PropTypes) => {
 
   const handleAddEvent = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newEvent = {
-      title,
-      description,
-      time,
-      date,
-      id: nanoid(),
-    };
-    dispatch(addEvent(newEvent));
+    if (isEditing) {
+      const newEvent = {
+        title,
+        description,
+        time,
+        date: event.date,
+        id: event.id,
+      };
+      dispatch(editEvent(newEvent));
+      setEventToEdit({} as Event);
+    } else {
+      const newEvent = {
+        title,
+        description,
+        time,
+        date,
+        id: nanoid(),
+      };
+      dispatch(addEvent(newEvent));
+    }
+
     clearForm();
   };
 
@@ -70,10 +94,15 @@ const EventForm = ({ setAddEventModalVisible, date }: PropTypes) => {
             className="time-input"
           />
         </div>
-        <button type="submit" className="add-button">
-          {" "}
-          Add{" "}
-        </button>
+        {isEditing ? (
+          <button type="submit" className="add-button">
+            Save
+          </button>
+        ) : (
+          <button type="submit" className="add-button">
+            Add
+          </button>
+        )}
       </form>
     </div>
   );

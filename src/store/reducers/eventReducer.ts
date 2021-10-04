@@ -22,8 +22,8 @@ const eventReducer = createReducer(initialState, (builder) => {
     })
     .addCase(editEvent, (state, action) => {
       if (action.payload) {
-        state.events.map((event) =>
-          event.id === action.payload!["id"] ? action.payload : event
+        state.events = state.events.map((event) =>
+          event.id === action.payload.id ? action.payload : event
         );
       }
     });
