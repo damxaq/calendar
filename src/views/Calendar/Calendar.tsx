@@ -37,7 +37,7 @@ const Calendar = () => {
     if (dateToShow && eventsGroups) {
       const calendarData = initiateCalendar(dateToShow);
       calendarData?.map((day) => {
-        day.eventsCount = eventsGroups[day.date]?.length;
+        return (day.eventsCount = eventsGroups[day.date]?.length);
       });
       setCalendar(calendarData!);
     }
@@ -66,7 +66,9 @@ const Calendar = () => {
               return (
                 <Link to={`/day/${day.date}`} key={index}>
                   <button
-                    title={day.date}
+                    title={`${day.date} ${
+                      day.eventsCount ? day.eventsCount : "0"
+                    } events`}
                     className={`day-button ${
                       day.isCurrentMonth ? "current-month" : ""
                     } ${day.date === today ? "current-day" : ""}`}

@@ -71,6 +71,7 @@ const EventForm = ({
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
+            maxLength={55}
           />
         </div>
         <div>
