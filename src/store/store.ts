@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import rootReducer from "./rootReducer";
+import eventReducer from "./reducers/eventReducer";
 
 export default configureStore({
-  reducer: { root: rootReducer },
+  reducer: { events: eventReducer },
 });

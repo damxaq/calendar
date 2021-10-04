@@ -1,4 +1,5 @@
 import { AnyAction } from "redux";
+import { addEvent } from "./actions/eventActions";
 
 interface EventsState {
   events: Array<any>;
@@ -9,7 +10,10 @@ const initState: EventsState = {
 };
 
 const rootReducer = (state = initState, action: AnyAction) => {
-  return state;
+  switch (action.type) {
+    default:
+      return state;
+  }
 };
 
 export default rootReducer;
