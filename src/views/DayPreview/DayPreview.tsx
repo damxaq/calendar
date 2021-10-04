@@ -5,7 +5,9 @@ import "./dayPreview.css";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import EventForm from "../../components/Form/EventForm";
+import EventCard from "../../components/Event/EventCard";
 import { formatedDateFull, parseDate } from "../../utils/date.helpers";
+import { Event } from "../../models/event";
 
 interface ParamTypes {
   date: string;
@@ -32,15 +34,8 @@ const DayPreview = () => {
         />
       )}
       <div className="event-list">
-        {events.map((event: any, index: number) => {
-          return (
-            <div className="event-element" key={index}>
-              <p>{event.title}</p>
-              <p>{event.date}</p>
-              <p>{event.time}</p>
-              <p>{event.description}</p>
-            </div>
-          );
+        {events.map((event: Event) => {
+          return <EventCard event={event} key={event.id} />;
         })}
       </div>
     </div>

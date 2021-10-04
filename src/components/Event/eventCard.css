@@ -1,0 +1,8 @@
+.event-element {
+  padding: 1rem 0;
+  margin: auto;
+}
+
+.event-element:not(:last-child) {
+  border-bottom: 1px solid black;
+}

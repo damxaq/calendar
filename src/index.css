@@ -32,6 +32,6 @@ body {
   background-color: rgb(202, 202, 202);
 }
 
-.day-button:focus {
-  /* border-style: outset; */
+.day-button:hover {
+  background-color: white;
 }
