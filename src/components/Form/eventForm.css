@@ -1,0 +1,45 @@
+form div {
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  margin: auto;
+  padding-bottom: 1rem;
+}
+
+label {
+  padding-bottom: 0.5rem;
+}
+
+input {
+  border-radius: 5px;
+  border: none;
+  height: 2rem;
+}
+
+textarea {
+  border-radius: 5px;
+}
+
+.description-input {
+  height: 5rem;
+  padding: 5px;
+}
+
+.time-input {
+  width: 7.3rem;
+  margin: auto;
+}
+
+.add-button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+}
+
+.add-button:hover {
+  background-color: rgb(44, 73, 0);
+}

@@ -3,4 +3,5 @@ export type Event = {
   date: string;
   time: string;
   title: string;
+  description: string;
 };

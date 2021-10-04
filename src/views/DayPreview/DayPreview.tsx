@@ -1,6 +1,10 @@
+import { useState } from "react";
+import { useSelector, RootStateOrAny } from "react-redux";
+
 import "./dayPreview.css";
 import { useParams } from "react-router-dom";
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
+import EventForm from "../../components/Form/EventForm";
 import { formatedDateFull, parseDate } from "../../utils/date.helpers";
 
 interface ParamTypes {
@@ -9,25 +13,32 @@ interface ParamTypes {
 
 const DayPreview = () => {
   const { date } = useParams<ParamTypes>();
+  const [addEventModalVisible, setAddEventModalVisible] = useState(false);
 
   const dateObject = parseDate(date);
   const dateTitle = formatedDateFull(dateObject);
-
-  const events = [
-    " oqwhdfdfgdoqw oqw oqw d",
-    "kqwjnd oqwhdeergoqw oqw oqw d",
-    "kqwjnd oqwhdoqw oqw oererqw d",
-    "kqwjnd  oqw oqw d",
-  ];
+  const events = useSelector((state: RootStateOrAny) => state.events.events);
 
   return (
     <div>
       <Header title="Today Events" date={dateTitle} />
+      <button onClick={() => setAddEventModalVisible(!addEventModalVisible)}>
+        +
+      </button>
+      {addEventModalVisible && (
+        <EventForm
+          setAddEventModalVisible={setAddEventModalVisible}
+          date={date}
+        />
+      )}
       <div className="event-list">
-        {events.map((event, index) => {
+        {events.map((event: any, index: number) => {
           return (
             <div className="event-element" key={index}>
-              {event}
+              <p>{event.title}</p>
+              <p>{event.date}</p>
+              <p>{event.time}</p>
+              <p>{event.description}</p>
             </div>
           );
         })}
