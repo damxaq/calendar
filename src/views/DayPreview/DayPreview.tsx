@@ -9,6 +9,7 @@ import EventCard from "../../components/Event/EventCard";
 import Navigation from "../../components/Navigation/Navigation";
 import { formatedDateFull, parseDate } from "../../utils/date.helpers";
 import { Event } from "../../models/event";
+import { createSelector } from "reselect";
 
 interface ParamTypes {
   date: string;
@@ -21,7 +22,13 @@ const DayPreview = () => {
 
   const dateObject = parseDate(date);
   const dateTitle = formatedDateFull(dateObject);
-  const events = useSelector((state: RootStateOrAny) => state.events.events);
+
+  const selectEventsByDate = createSelector(
+    (state: RootStateOrAny) => state.events.events,
+    (events) => events.filter((event: Event) => event.date === date)
+  );
+
+  const events = useSelector(selectEventsByDate);
 
   return (
     <div className="day-main">
