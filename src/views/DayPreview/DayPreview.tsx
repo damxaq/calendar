@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, RootStateOrAny } from "react-redux";
-
+import { createSelector } from "reselect";
 import "./dayPreview.css";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
@@ -9,7 +9,6 @@ import EventCard from "../../components/Event/EventCard";
 import Navigation from "../../components/Navigation/Navigation";
 import { formatedDateFull, parseDate } from "../../utils/date.helpers";
 import { Event } from "../../models/event";
-import { createSelector } from "reselect";
 
 interface ParamTypes {
   date: string;

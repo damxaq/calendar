@@ -25,6 +25,7 @@
   font-size: 1rem;
   color: rebeccapurple;
   font-weight: bold;
+  position: relative;
 }
 
 .day-button.current-month {
@@ -36,6 +37,17 @@
   color: white;
 }
 
+.day-button.current-day:hover {
+  color: white;
+  background-color: rgb(94, 110, 201);
+}
+
 .day-button:hover {
   background-color: white;
+}
+
+.events-count {
+  font-size: small;
+  position: absolute;
+  right: 1rem;
 }

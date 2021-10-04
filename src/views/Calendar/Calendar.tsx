@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
 import "./calendar.css";
+import { useSelector, RootStateOrAny } from "react-redux";
+import { createSelector } from "reselect";
+import { Event } from "../../models/event";
 
 import {
   getNextMonth,
@@ -16,9 +19,26 @@ const Calendar = () => {
   const [calendar, setCalendar] = useState<Array<any>>([]);
   const today = new Date().toLocaleDateString();
 
+  const selectEventsGroups = createSelector(
+    (state: RootStateOrAny) => state.events.events,
+    (events) =>
+      events.reduce(
+        (groups: any, item: Event) => ({
+          ...groups,
+          [item.date]: [...(groups[item.date] || []), item],
+        }),
+        {}
+      )
+  );
+
+  const eventsGroups = useSelector(selectEventsGroups);
+
   useEffect(() => {
-    if (dateToShow) {
+    if (dateToShow && eventsGroups) {
       const calendarData = initiateCalendar(dateToShow);
+      calendarData?.map((day) => {
+        day.eventsCount = eventsGroups[day.date]?.length;
+      });
       setCalendar(calendarData!);
     }
   }, [dateToShow]);
@@ -52,6 +72,9 @@ const Calendar = () => {
                     } ${day.date === today ? "current-day" : ""}`}
                   >
                     {day.monthDayNumber}
+                    {day.eventsCount && (
+                      <div className="events-count">({day.eventsCount})</div>
+                    )}
                   </button>
                 </Link>
               );
