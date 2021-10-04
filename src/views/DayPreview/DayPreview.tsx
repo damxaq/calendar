@@ -25,7 +25,12 @@ const DayPreview = () => {
 
   const selectEventsByDate = createSelector(
     (state: RootStateOrAny) => state.events.events,
-    (events) => events.filter((event: Event) => event.date === date)
+    (events) =>
+      events
+        .filter((event: Event) => event.date === date)
+        .sort((first: Event, second: Event) =>
+          first.time > second.time ? 1 : second.time > first.time ? -1 : 0
+        )
   );
 
   const events = useSelector(selectEventsByDate);

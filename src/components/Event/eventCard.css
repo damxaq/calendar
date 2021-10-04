@@ -1,6 +1,7 @@
 .event-element {
   padding: 1rem 0;
   margin: auto;
+  width: 90%;
 }
 
 .event-element:not(:last-child) {
