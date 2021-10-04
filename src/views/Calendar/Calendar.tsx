@@ -20,15 +20,16 @@ const Calendar = () => {
   const today = new Date().toLocaleDateString();
 
   const selectEventsGroups = createSelector(
-    (state: RootStateOrAny) => state.events.events,
-    (events) =>
-      events.reduce(
+    (state: RootStateOrAny) => state.event.events,
+    (events) => {
+      return events.reduce(
         (groups: any, item: Event) => ({
           ...groups,
           [item.date]: [...(groups[item.date] || []), item],
         }),
         {}
-      )
+      );
+    }
   );
 
   const eventsGroups = useSelector(selectEventsGroups);

@@ -23,7 +23,7 @@ const DayPreview = () => {
   const dateTitle = formatedDateFull(dateObject);
 
   const selectEventsByDate = createSelector(
-    (state: RootStateOrAny) => state.events.events,
+    (state: RootStateOrAny) => state.event.events,
     (events) =>
       events
         .filter((event: Event) => event.date === date)
