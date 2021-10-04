@@ -22,24 +22,26 @@ const EventCard = ({ event, setEventToEdit }: PropTypes) => {
 
   return (
     <div className="event-element">
-      <button
-        onClick={() => {
-          handleDeleteEvent();
-        }}
-      >
-        <i className="fa fa-trash" />
-      </button>
-      <button
-        onClick={() => {
-          handleEdit();
-        }}
-      >
-        <i className="fa fa-edit" />
-      </button>
-
-      <p>{event.title}</p>
-      <p>{event.date}</p>
-      <p>{event.time}</p>
+      <div className="top-card">
+        <button
+          className="edit-button"
+          onClick={() => {
+            handleEdit();
+          }}
+        >
+          <i className="fa fa-edit" />
+        </button>
+        <p>{event.time}</p>
+        <button
+          className="delete-button"
+          onClick={() => {
+            handleDeleteEvent();
+          }}
+        >
+          <i className="fa fa-trash" />
+        </button>
+      </div>
+      <h4>{event.title}</h4>
       <p>{event.description}</p>
     </div>
   );
