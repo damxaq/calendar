@@ -1,13 +1,18 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { addEvent, deleteEvent, editEvent } from "../actions/eventActions";
 import { Event } from "../../models/event";
+import { initFakeEvents } from "../../utils/faker.helpers";
 
 interface EventsState {
   events: Array<Event>;
 }
 
+const fakeEvents = initFakeEvents();
+
+const initialEvents: Array<Event> = fakeEvents;
+
 const initialState: EventsState = {
-  events: [],
+  events: initialEvents ? initialEvents : Array<Event>(),
 };
 
 const eventReducer = createReducer(initialState, (builder) => {
