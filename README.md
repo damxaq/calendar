@@ -15,6 +15,7 @@ About:
 - User can change the day in the day view
 - User can add new events, delete, and update them
 - Events ar sorted by the hour
+- With first use, app is generating random events to populate current month in the calendar.
 - App is responsive
 
 Technology Stack:
