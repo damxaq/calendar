@@ -1,7 +1,8 @@
 form div {
   display: flex;
   flex-direction: column;
-  max-width: 30rem;
+  width: 90%;
+  max-width: 40rem;
   margin: auto;
   padding-bottom: 1rem;
 }
@@ -42,4 +43,13 @@ textarea {
 
 .add-button:hover {
   background-color: rgb(44, 73, 0);
+}
+
+@media screen and (max-width: 720px) {
+  form div {
+    padding-bottom: 0.5rem;
+  }
+  .add-button {
+    padding: 0.6rem 1rem;
+  }
 }

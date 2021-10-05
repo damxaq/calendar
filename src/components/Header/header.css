@@ -4,3 +4,15 @@
   text-align: center;
   padding: 10px;
 }
+
+@media screen and (max-width: 720px) {
+  .header-style {
+    padding: 5px;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  h3 {
+    font-size: 0.8rem;
+  }
+}

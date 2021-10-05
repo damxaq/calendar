@@ -29,3 +29,9 @@
 .navigation-container button:hover {
   color: royalblue;
 }
+
+@media screen and (max-width: 720px) {
+  .navigation-container button {
+    padding: 0 1rem;
+  }
+}

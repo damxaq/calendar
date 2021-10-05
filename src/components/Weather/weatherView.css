@@ -29,5 +29,11 @@
     position: static;
     justify-content: center;
     padding-bottom: 0;
+    font-size: 0.8rem;
+  }
+
+  .icon {
+    height: 3rem;
+    transform: translateY(-7px);
   }
 }

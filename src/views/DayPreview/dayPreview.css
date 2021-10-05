@@ -24,3 +24,12 @@
 .add-event-button:hover {
   background-color: royalblue;
 }
+
+@media screen and (max-width: 720px) {
+  .event-list {
+    width: 90%;
+  }
+  .add-event-button {
+    font-size: 0.8rem;
+  }
+}
