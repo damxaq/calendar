@@ -11,9 +11,10 @@ About:
 - Calendar shows the amount of events in the corner of each day
 - Each day is a link to detailed view with the list of events for this day
 - First 7 days from the current day shows weather forecast from Openweather Api
+- App is asking to share location for feching weather, if location is not shared, the uses Poznan location as default
 - User can change the day in the day view
 - User can add new events, delete, and update them
-- Events are sorted by the hour
+- Events ar sorted by the hour
 - App is responsive
 
 Technology Stack:
