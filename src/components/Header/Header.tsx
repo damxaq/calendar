@@ -8,8 +8,8 @@ interface PropTypes {
 const Header = ({ title, date }: PropTypes) => {
   return (
     <header className="header-style">
-      <h1>{title}</h1>
-      <h2>{date}</h2>
+      <h2>{title}</h2>
+      <h3>{date}</h3>
     </header>
   );
 };

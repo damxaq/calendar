@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import EventForm from "../../components/Form/EventForm";
 import EventCard from "../../components/Event/EventCard";
+import WeatherView from "../../components/Weather/WeatherView";
 import Navigation from "../../components/Navigation/Navigation";
 import { formatedDateFull, parseDate } from "../../utils/date.helpers";
 import { Event } from "../../models/event";
@@ -42,6 +43,7 @@ const DayPreview = () => {
         buttonRight={() => {}}
         date={dateObject}
       />
+      <WeatherView date={date} />
       <button
         onClick={() => setAddEventModalVisible(!addEventModalVisible)}
         className="add-event-button"

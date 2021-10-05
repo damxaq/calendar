@@ -6,6 +6,7 @@ import "./calendar.css";
 import { useSelector, RootStateOrAny } from "react-redux";
 import { createSelector } from "reselect";
 import { Event } from "../../models/event";
+import useWeather from "../../hooks/useWeather";
 
 import {
   getNextMonth,
@@ -18,6 +19,8 @@ const Calendar = () => {
   const [dateToShow, setDateToShow] = useState(new Date());
   const [calendar, setCalendar] = useState<Array<any>>([]);
   const today = new Date().toLocaleDateString();
+
+  useWeather();
 
   const selectEventsGroups = createSelector(
     (state: RootStateOrAny) => state.event.events,

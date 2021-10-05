@@ -1,0 +1,33 @@
+.weather-container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  position: absolute;
+  right: 5rem;
+  text-align: start;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+.desc {
+  text-transform: capitalize;
+}
+
+.icon {
+  padding-left: 1rem;
+  height: 5rem;
+  padding: 0;
+  transform: translateY(-15px);
+}
+
+.icon img {
+  height: 100%;
+}
+
+@media screen and (max-width: 720px) {
+  .weather-container {
+    position: static;
+    justify-content: center;
+    padding-bottom: 0;
+  }
+}

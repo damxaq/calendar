@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import eventReducer from "./reducers/eventReducer";
+import weatherReducer from "./reducers/weatherReducer";
 import {
   persistReducer,
   FLUSH,
@@ -12,8 +13,9 @@ import {
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 
-const reducers: any = combineReducers({
+const reducers = combineReducers({
   event: eventReducer,
+  weather: weatherReducer,
 });
 
 const persistConfig = {
